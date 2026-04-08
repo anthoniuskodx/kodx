@@ -2,12 +2,14 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install dependencies
-COPY pyproject.toml ./
-RUN pip install --no-cache-dir .
-
-# Copy source
+# Copy requirements first for better caching
 COPY src/ ./src/
+
+# Install minimal dependencies (if any)
+# No external dependencies needed for this project
+
+# Set Python path
+ENV PYTHONPATH=/app
 
 # Default command
 CMD ["python", "-m", "src"]
