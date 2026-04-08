@@ -64,4 +64,4 @@ jobs:
           tags: kodx:latest
 
       - name: Image digest
-        run: echo "Image built: ${{ steps.build.outputs.digest }}"
+        run: echo "Docker image built successfully"
